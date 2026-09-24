@@ -61,6 +61,11 @@ $e5 = ($h4 -eq $h5)
 $e6 = $v4.Contains('for(let hop=0;hop<5;hop++)') -and $idx.Contains('for(let hop=0;hop<5;hop++)')
 $e7 = $v4.Contains('79:82') -and $idx.Contains('79:82')
 $e8 = (-not $v4.Contains('else if(q3[d]){let R=q3[d];')) -and (-not $idx.Contains('else if(q3[d]){let R=q3[d];'))
+$e9 = $v4.Contains('function cleanForSpeech') -and $idx.Contains('function cleanForSpeech')
+$e10 = $v4.Contains('u.pitch=isBoy?1.0:1.12') -and $idx.Contains('u.pitch=isBoy?1.0:1.12')
+$e11 = (-not $v4.Contains('u.pitch=isBoy?1.35:1.7')) -and (-not $idx.Contains('u.pitch=isBoy?1.35:1.7'))
+$e12 = $v4.Contains('google.*bahasa indonesia') -and $idx.Contains('google.*bahasa indonesia')
+$e13 = $v4.Contains('u.lang="id-ID"') -and $idx.Contains('u.lang="id-ID"')
 Write-Output "1. mojibake nol di kedua file: $e1"
 Write-Output "2. karakter bullet asli ada: $e2"
 Write-Output "3. dice guard blokir modal D: $e3"
@@ -69,8 +74,13 @@ Write-Output "5. kedua file identik: $e5"
 Write-Output "6. chain loop multi-hop: $e6"
 Write-Output "7. bg 79:82 mid-ladder: $e7"
 Write-Output "8. chain lama (if tunggal) hilang: $e8"
+Write-Output "9. cleanForSpeech teks Indonesia: $e9"
+Write-Output "10. pitch natural (bukan chipmunk): $e10"
+Write-Output "11. pitch lama 1.35/1.7 hilang: $e11"
+Write-Output "12. voice Indonesia prioritas: $e12"
+Write-Output "13. lang id-ID selalu: $e13"
 
-$all = @($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8,$c9,$c10,$c11,$d1,$d2,$d3,$d4,$d5,$d6,$d7,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8)
+$all = @($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8,$c9,$c10,$c11,$d1,$d2,$d3,$d4,$d5,$d6,$d7,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$e10,$e11,$e12,$e13)
 $failed = @($all | Where-Object { $_ -ne $true })
 Write-Output ""
 if ($failed.Count -eq 0) {

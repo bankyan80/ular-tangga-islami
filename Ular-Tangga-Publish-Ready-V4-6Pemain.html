@@ -95,26 +95,50 @@
     var cache=[],S=window.speechSynthesis;
     function refresh(){if(S){cache=S.getVoices()||[];}}
     if(S){try{refresh();S.onvoiceschanged=refresh;}catch(e){}}
+    function normLang(x){return String(x||"").toLowerCase().replace("_","-");}
     function pick(isBoy){
-      var set=cache.filter(function(v){return v.lang&&v.lang.toLowerCase().indexOf('id')===0;});
-      if(!set.length)set=cache;
-      var pat=isBoy?[/andika/i,/male/i,/pria/i,/dan/i,/agung/i,/reza/i,/ardi/i,/arya/i,/suko/i,/fajar/i]:[/gadis/i,/female/i,/wanita/i,/lina/i,/diah/i,/sari/i,/dewi/i,/siti/i,/maleha/i,/eja/i,/nila/i];
-      for(var i=0;i<pat.length;i++)for(var j=0;j<set.length;j++)if(pat[i].test(set[j].name))return set[j];
-      if(!isBoy)for(var j=0;j<set.length;j++)if(/female|wanita|wanita/i.test(set[j].name))return set[j];
+      var idSet=cache.filter(function(v){return v.lang&&normLang(v.lang).indexOf("id")===0;});
+      var set=idSet.length?idSet:cache.slice();
+      var pref=isBoy?
+        [/google.*bahasa indonesia/i,/google.*indonesia/i,/andika/i,/ardi/i,/reza/i,/microsoft ardi/i,/indonesian.*male/i,/male.*indonesian/i,/id-id.*male/i,/pria/i,/male/i]:
+        [/google.*bahasa indonesia/i,/google.*indonesia/i,/gadis/i,/microsoft gadis/i,/indonesian.*female/i,/female.*indonesian/i,/id-id.*female/i,/wanita/i,/female/i];
+      for(var i=0;i<pref.length;i++)for(var j=0;j<set.length;j++)if(pref[i].test(set[j].name))return set[j];
       return set[0]||null;
+    }
+    function cleanForSpeech(text){
+      if(text==null)return "";
+      var s=String(text);
+      s=s.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g,"");
+      s=s.replace(/[\u2600-\u27BF]/g,"");
+      s=s.replace(/[\uFE0F\u200D\u20E3]/g,"");
+      s=s.replace(/\u2192/g," ke ");
+      s=s.replace(/\bGreen Ladder\b/gi,"Tangga hijau");
+      s=s.replace(/\bBlue Ladder\b/gi,"Tangga biru");
+      s=s.replace(/\bStart with\b/gi,"Mulai dengan");
+      s=s.replace(/\bFINISH\b/gi,"Selesai");
+      s=s.replace(/\bYes\b/gi,"Ya");
+      s=s.replace(/Do'a/gi,"Doa");
+      s=s.replace(/(\d)\s*[xX]\b/g,"$1 kali");
+      s=s.replace(/\+/g," tambah ");
+      s=s.replace(/:\)/g," tersenyum");
+      s=s.replace(/\s+/g," ").trim();
+      return s;
     }
     function speak(text,gender){
       try{
         if(!text||!S)return;
         if(window.UlarAudio&&window.UlarAudio.isMuted&&window.UlarAudio.isMuted())return;
+        var msg=cleanForSpeech(text);
+        if(!msg)return;
         refresh();
         try{S.cancel();}catch(e){}
-        var u=new SpeechSynthesisUtterance(text);
+        var u=new SpeechSynthesisUtterance(msg);
         var isBoy=gender!=="female";
         var v=pick(isBoy);
-        if(v){u.voice=v;u.lang=v.lang;}else{u.lang="id-ID";}
+        if(v){u.voice=v;}
+        u.lang="id-ID";
         u.rate=0.95;
-        u.pitch=isBoy?1.35:1.7;
+        u.pitch=isBoy?1.0:1.12;
         u.volume=1;
         S.speak(u);
       }catch(e){}
