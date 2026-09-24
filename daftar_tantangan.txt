@@ -1,0 +1,175 @@
+DAFTAR TANTANGAN - Ular Tangga Islami V4
+============================================================
+Sumber: index.html / Ular-Tangga-Publish-Ready-V4-6Pemain.html
+Data: object mg={pos:teks} — muncul saat mendarat di kotak pos
+
+Jenis modal dalam game:
+  - QUIZ        : ada "?" atau "Jawab" → tombol Benar/Salah
+  - INFO/TANTANGAN : tanpa "?" → tombol "Lanjutkan Permainan"
+
+TOTAL: 74 kotak berisi tantangan/event
+  - Quiz (Benar/Salah): 20
+  - Info/Tantangan (Lanjut): 54
+
+============================================================
+BAGIAN 1 — QUIZ (pertanyaan, jawab Benar/Salah)
+============================================================
+  1. [kotak  2] Berapa hasil 1+1?
+  2. [kotak  4] Ada berapa roda Mobil?
+  3. [kotak  6] Berapa hasil 3+3?
+  4. [kotak  7] Berapa jumlah ayat Surat Al-Fatihah?
+  5. [kotak  8] Sebutkan nama hewan apa saja?
+  6. [kotak 16] Apa suara katak?
+  7. [kotak 18] Berapakah umurmu?
+  8. [kotak 23] Berapa hasil 4x6?
+  9. [kotak 26] Sebutkan nama hewan apa saja?
+ 10. [kotak 32] Siapakah Nabi pertama?
+ 11. [kotak 36] Berapa hasil 6x6?
+ 12. [kotak 43] Berapa hasil 7x6?
+ 13. [kotak 58] Sebutkan 5 Rukun Islam?
+ 14. [kotak 60] Berapa hasil 120:2?
+ 15. [kotak 61] Siapa Tuhanmu?
+ 16. [kotak 63] Berapa hasil 9x7?
+ 17. [kotak 65] Bagaimana bunyi sapi?
+ 18. [kotak 70] Sebutkan 2 nama malaikat?
+ 19. [kotak 77] Berapa hasil 7x11?
+ 20. [kotak 89] Sebutkan nama hewan berkaki 2?
+
+============================================================
+BAGIAN 2 — INFO / TANTANGAN (tekan Lanjutkan Permainan)
+============================================================
+  1. [kotak  1] Start with Basmalah - Bismillahirrahmanirrahim!
+  2. [kotak  3] Takbir! 3x - Allahu Akbar!
+  3. [kotak  5] Maju 5 kotak! Alhamdulillah dapat bonus!
+  4. [kotak  9] Maju 10 Kali Mundur 1 Kali - Bonus +9!
+  5. [kotak 10] Yes! 10x - Tahmid 10x!
+  6. [kotak 11] Kita adalah umatnya Nabi Muhammad ﷺ
+  7. [kotak 12] Tahmid! 12x - Alhamdulillah!
+  8. [kotak 14] Maju 2 Kotak (sambil angkat 1 Kaki)
+  9. [kotak 15] Tasbih 14x - Subhanallah!
+ 10. [kotak 17] Tiru bunyi hewan dikotak sebelah
+ 11. [kotak 19] Sebutkan 1 hewan Padang Pasir!
+ 12. [kotak 20] Naik Sambil Takbir! 20x
+ 13. [kotak 24] Bacakan Surat Al-Ikhlas!
+ 14. [kotak 27] Senyum dulu Yuk :) - Senyum itu sedekah
+ 15. [kotak 28] Tahmid! 3x
+ 16. [kotak 31] Silahkan Maju 3 Mundur 1 (+2)
+ 17. [kotak 33] Naik Sambil Sholawat 33x
+ 18. [kotak 34] Maju 3x Sambil Melompat
+ 19. [kotak 37] Tiru bunyi kendaraan!
+ 20. [kotak 38] Maju 3 kotak!
+ 21. [kotak 40] Maaf ya Kamu Harus turun
+ 22. [kotak 41] Green Ladder! Naik ke 41
+ 23. [kotak 44] Tahlil 4+4 Kali - La ilaha illallah
+ 24. [kotak 46] Melompat Ditempat 3x
+ 25. [kotak 47] Boleh Duduk Sebentar
+ 26. [kotak 48] Tirulah gaya ini!
+ 27. [kotak 49] Tiru bunyi hewan dikotak 8
+ 28. [kotak 51] Bacakan Do'a Sebelum Tidur
+ 29. [kotak 53] Bacakan Surat Al Fatihah
+ 30. [kotak 55] Maju 4 Kotak (Sambil Mundur) - Tetap semangat!
+ 31. [kotak 57] Maaf ya, Kamu Harus turun lagi - Ular!
+ 32. [kotak 59] Naik Sambil Takbir 5+9 Kali = 14x
+ 33. [kotak 64] Istighfar 6+4 kali = 10x Astaghfirullah
+ 34. [kotak 66] Naik Sambil Tahmid 5+5 kali = 10x
+ 35. [kotak 71] Naik Sambil Sholawat 7x
+ 36. [kotak 73] Tirulah Gaya Ini - Gaya semangat!
+ 37. [kotak 74] Kamu Boleh Minum (untuk duduk dulu)
+ 38. [kotak 75] Maaf ya Kamu Harus turun - Ular ungu!
+ 39. [kotak 79] Blue Ladder menuju 82!
+ 40. [kotak 81] Takbir 8+1 Kali = 9x
+ 41. [kotak 83] Kamu Dapat Makanan - Alhamdulillah
+ 42. [kotak 84] Maaf ya Kamu Harus turun Lagi
+ 43. [kotak 85] Maju 8 Mundur 5 = Maju 3
+ 44. [kotak 86] Bacakan Do'a Sebelum Makan
+ 45. [kotak 87] Naik Sambil Sholawat 8+7 Kali = 15x
+ 46. [kotak 88] Tangga turun, aman!
+ 47. [kotak 92] Maaf ya Kamu Harus turun lagi - Ular!
+ 48. [kotak 93] Kamu Boleh Minum (untuk duduk dulu)
+ 49. [kotak 95] Tangga! Menuju puncak!
+ 50. [kotak 96] Maju 2x Sambil Melompat
+ 51. [kotak 97] Maaf ya Kamu Harus Mundur 3 Langkah
+ 52. [kotak 98] Teriakan Namamu dengan suara Keras
+ 53. [kotak 99] Nyanyikan Asmaul Husna
+ 54. [kotak 100] FINISH! Alhamdulillah kamu menang!
+
+============================================================
+BAGIAN 3 — SEMUA KOTAK (urut nomor kotak)
+============================================================
+[I] kotak  1 | Start with Basmalah - Bismillahirrahmanirrahim!
+[Q] kotak  2 | Berapa hasil 1+1?
+[I] kotak  3 | Takbir! 3x - Allahu Akbar!
+[Q] kotak  4 | Ada berapa roda Mobil?
+[I] kotak  5 | Maju 5 kotak! Alhamdulillah dapat bonus!
+[Q] kotak  6 | Berapa hasil 3+3?
+[Q] kotak  7 | Berapa jumlah ayat Surat Al-Fatihah?
+[Q] kotak  8 | Sebutkan nama hewan apa saja?
+[I] kotak  9 | Maju 10 Kali Mundur 1 Kali - Bonus +9!
+[I] kotak 10 | Yes! 10x - Tahmid 10x!
+[I] kotak 11 | Kita adalah umatnya Nabi Muhammad ﷺ
+[I] kotak 12 | Tahmid! 12x - Alhamdulillah!
+[I] kotak 14 | Maju 2 Kotak (sambil angkat 1 Kaki)
+[I] kotak 15 | Tasbih 14x - Subhanallah!
+[Q] kotak 16 | Apa suara katak?
+[I] kotak 17 | Tiru bunyi hewan dikotak sebelah
+[Q] kotak 18 | Berapakah umurmu?
+[I] kotak 19 | Sebutkan 1 hewan Padang Pasir!
+[I] kotak 20 | Naik Sambil Takbir! 20x
+[Q] kotak 23 | Berapa hasil 4x6?
+[I] kotak 24 | Bacakan Surat Al-Ikhlas!
+[Q] kotak 26 | Sebutkan nama hewan apa saja?
+[I] kotak 27 | Senyum dulu Yuk :) - Senyum itu sedekah
+[I] kotak 28 | Tahmid! 3x
+[I] kotak 31 | Silahkan Maju 3 Mundur 1 (+2)
+[Q] kotak 32 | Siapakah Nabi pertama?
+[I] kotak 33 | Naik Sambil Sholawat 33x
+[I] kotak 34 | Maju 3x Sambil Melompat
+[Q] kotak 36 | Berapa hasil 6x6?
+[I] kotak 37 | Tiru bunyi kendaraan!
+[I] kotak 38 | Maju 3 kotak!
+[I] kotak 40 | Maaf ya Kamu Harus turun
+[I] kotak 41 | Green Ladder! Naik ke 41
+[Q] kotak 43 | Berapa hasil 7x6?
+[I] kotak 44 | Tahlil 4+4 Kali - La ilaha illallah
+[I] kotak 46 | Melompat Ditempat 3x
+[I] kotak 47 | Boleh Duduk Sebentar
+[I] kotak 48 | Tirulah gaya ini!
+[I] kotak 49 | Tiru bunyi hewan dikotak 8
+[I] kotak 51 | Bacakan Do'a Sebelum Tidur
+[I] kotak 53 | Bacakan Surat Al Fatihah
+[I] kotak 55 | Maju 4 Kotak (Sambil Mundur) - Tetap semangat!
+[I] kotak 57 | Maaf ya, Kamu Harus turun lagi - Ular!
+[Q] kotak 58 | Sebutkan 5 Rukun Islam?
+[I] kotak 59 | Naik Sambil Takbir 5+9 Kali = 14x
+[Q] kotak 60 | Berapa hasil 120:2?
+[Q] kotak 61 | Siapa Tuhanmu?
+[Q] kotak 63 | Berapa hasil 9x7?
+[I] kotak 64 | Istighfar 6+4 kali = 10x Astaghfirullah
+[Q] kotak 65 | Bagaimana bunyi sapi?
+[I] kotak 66 | Naik Sambil Tahmid 5+5 kali = 10x
+[Q] kotak 70 | Sebutkan 2 nama malaikat?
+[I] kotak 71 | Naik Sambil Sholawat 7x
+[I] kotak 73 | Tirulah Gaya Ini - Gaya semangat!
+[I] kotak 74 | Kamu Boleh Minum (untuk duduk dulu)
+[I] kotak 75 | Maaf ya Kamu Harus turun - Ular ungu!
+[Q] kotak 77 | Berapa hasil 7x11?
+[I] kotak 79 | Blue Ladder menuju 82!
+[I] kotak 81 | Takbir 8+1 Kali = 9x
+[I] kotak 83 | Kamu Dapat Makanan - Alhamdulillah
+[I] kotak 84 | Maaf ya Kamu Harus turun Lagi
+[I] kotak 85 | Maju 8 Mundur 5 = Maju 3
+[I] kotak 86 | Bacakan Do'a Sebelum Makan
+[I] kotak 87 | Naik Sambil Sholawat 8+7 Kali = 15x
+[I] kotak 88 | Tangga turun, aman!
+[Q] kotak 89 | Sebutkan nama hewan berkaki 2?
+[I] kotak 92 | Maaf ya Kamu Harus turun lagi - Ular!
+[I] kotak 93 | Kamu Boleh Minum (untuk duduk dulu)
+[I] kotak 95 | Tangga! Menuju puncak!
+[I] kotak 96 | Maju 2x Sambil Melompat
+[I] kotak 97 | Maaf ya Kamu Harus Mundur 3 Langkah
+[I] kotak 98 | Teriakan Namamu dengan suara Keras
+[I] kotak 99 | Nyanyikan Asmaul Husna
+[I] kotak 100 | FINISH! Alhamdulillah kamu menang!
+
+Kode: [Q]=quiz  [I]=info/tantangan
+Dicetak: 2026-09-24T05:57:24.789Z
