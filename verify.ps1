@@ -38,14 +38,14 @@ $d1 = (-not $idx.Contains($patStub))
 $d2 = $idx.Contains($patOldDef)
 $d3 = $idx.Contains('speechSynthesis')
 $d4 = $idx.Contains('gender:"male"')
-$d5 = $idx.Contains('UlarSpeech.speak(_t,A[v].gender)')
+$d5 = $idx.Contains('answerQuiz=(benar)') -and $idx.Contains('children:"Benar"') -and $idx.Contains('children:"Salah"')
 $d6 = $idx.Contains('Butuh folder sounds/')
 $d7 = (-not $idx.Contains('No external deps'))
 Write-Output "1. stub no-op tidak dipakai (pakai IIFE): $d1"
 Write-Output "2. UlarSpeech IIFE: $d2"
 Write-Output "3. speechSynthesis aktif: $d3"
 Write-Output "4. gender pemain: $d4"
-Write-Output "5. call site speak+gender: $d5"
+Write-Output "5. quiz Benar/Salah + answerQuiz: $d5"
 Write-Output "6. footer jujur (sounds): $d6"
 Write-Output "7. klaim No external deps hilang: $d7"
 
@@ -66,6 +66,9 @@ $e10 = $v4.Contains('u.pitch=isBoy?1.0:1.12') -and $idx.Contains('u.pitch=isBoy?
 $e11 = (-not $v4.Contains('u.pitch=isBoy?1.35:1.7')) -and (-not $idx.Contains('u.pitch=isBoy?1.35:1.7'))
 $e12 = $v4.Contains('google.*bahasa indonesia') -and $idx.Contains('google.*bahasa indonesia')
 $e13 = $v4.Contains('u.lang="id-ID"') -and $idx.Contains('u.lang="id-ID"')
+$e14 = $v4.Contains('kind:"quiz"') -and $idx.Contains('kind:"quiz"')
+$e15 = $v4.Contains('stripAnswer=(t)') -and $idx.Contains('stripAnswer=(t)')
+$e16 = $v4.Contains('finishTurn=(dice)') -and $idx.Contains('finishTurn=(dice)')
 Write-Output "1. mojibake nol di kedua file: $e1"
 Write-Output "2. karakter bullet asli ada: $e2"
 Write-Output "3. dice guard blokir modal D: $e3"
@@ -79,8 +82,11 @@ Write-Output "10. pitch natural (bukan chipmunk): $e10"
 Write-Output "11. pitch lama 1.35/1.7 hilang: $e11"
 Write-Output "12. voice Indonesia prioritas: $e12"
 Write-Output "13. lang id-ID selalu: $e13"
+Write-Output "14. mode quiz di modal: $e14"
+Write-Output "15. stripAnswer sembunyikan jawaban: $e15"
+Write-Output "16. finishTurn setelah jawab: $e16"
 
-$all = @($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8,$c9,$c10,$c11,$d1,$d2,$d3,$d4,$d5,$d6,$d7,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$e10,$e11,$e12,$e13)
+$all = @($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8,$c9,$c10,$c11,$d1,$d2,$d3,$d4,$d5,$d6,$d7,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$e10,$e11,$e12,$e13,$e14,$e15,$e16)
 $failed = @($all | Where-Object { $_ -ne $true })
 Write-Output ""
 if ($failed.Count -eq 0) {
