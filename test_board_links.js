@@ -5,7 +5,23 @@ const j = h.indexOf('function nz', i);
 const fn = h.slice(i, j);
 const hg = { 92: 88, 75: 67, 57: 43, 39: 22, 23: 17 };
 const bg = { 21: 41, 31: 50, 35: 47, 62: 82, 66: 75, 69: 72, 86: 95, 90: 91, 79: 82 };
-const svg = eval('(function(){var hg=' + JSON.stringify(hg) + ';var bg=' + JSON.stringify(bg) + ';' + fn + ';return boardLinks()})()');
+
+// Strict eval matches type=module (catches bare assignments like d=...)
+let svg;
+try {
+  svg = eval(
+    '(function(){' +
+      '"use strict";' +
+      'var hg=' + JSON.stringify(hg) + ';' +
+      'var bg=' + JSON.stringify(bg) + ';' +
+      fn +
+      ';return boardLinks()})()'
+  );
+} catch (e) {
+  console.error('STRICT EVAL FAIL:', e.message);
+  process.exit(1);
+}
+
 console.log('svg len', svg.length);
 console.log('starts', svg.slice(0, 90));
 const count = (re) => (svg.match(re) || []).length;
@@ -25,7 +41,7 @@ const xs = [...svg.matchAll(/cx="([0-9.]+)"/g)].map((m) => +m[1]);
 const ys = [...svg.matchAll(/cy="([0-9.]+)"/g)].map((m) => +m[1]);
 console.log('xy', Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys));
 console.log('in range', xs.every((x) => x >= 0 && x <= 100) && ys.every((y) => y >= 0 && y <= 100));
-// each pair endpoints distinct and on 5-grid centers
+
 function P(n) {
   const f = Math.floor((n - 1) / 10);
   const v = f % 2 === 0 ? (n - 1) % 10 : 9 - ((n - 1) % 10);
@@ -37,5 +53,9 @@ for (const [a, b] of Object.entries({ ...hg, ...bg })) {
   if (p1.x === p2.x && p1.y === p2.y) { ok = false; console.log('same cell', a); }
   if (!svg.includes('>' + a + '<') || !svg.includes('>' + b + '<')) { ok = false; console.log('label miss', a, b); }
 }
-console.log(ok ? 'ALL ENDPOINTS OK' : 'FAIL');
+// no bare d in source
+if (fn.includes(";d='M'") || fn.includes(';d="M"')) { ok = false; console.log('bare d in source'); }
+if (!fn.includes(",d='M'")) { ok = false; console.log('const-list d missing'); }
+
+console.log(ok && !missing.length ? 'ALL ENDPOINTS OK' : 'FAIL');
 process.exit(ok && !missing.length ? 0 : 1);
