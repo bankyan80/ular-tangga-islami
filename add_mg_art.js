@@ -103,27 +103,39 @@ function patch(file) {
   let h = buf.toString('utf8');
   if (hasBom && h.charCodeAt(0) === 0xFEFF) h = h.slice(1);
 
-  // 1) Insert mgArt after mg={...};
+  // 1) Insert mgArt into the same var chain as mg: ...},mg={...},mgArt={...};
+  // Never emit bare mgArt= after ";" (ReferenceError in strict/module).
   if (h.indexOf('mgArt=') >= 0) {
-    // replace existing mgArt block
     const ia = h.indexOf('mgArt={');
     const ib = h.indexOf('};', ia);
     if (ia < 0 || ib < 0) throw new Error(file + ': existing mgArt malformed');
-    h = h.slice(0, ia) + artLiteral() + h.slice(ib + 2);
-    console.log('  mgArt replaced');
+    let prefix = h.slice(0, ia);
+    if (prefix.endsWith('};')) prefix = prefix.slice(0, -1) + ',';
+    else if (!prefix.endsWith(',')) prefix = prefix + ',';
+    h = prefix + artLiteral() + h.slice(ib + 2);
+    console.log('  mgArt replaced (joined to var chain)');
   } else {
     const ma = h.indexOf('mg={');
     const mb = h.indexOf('};', ma);
     if (ma < 0 || mb < 0) throw new Error(file + ': mg not found');
-    h = h.slice(0, mb + 2) + artLiteral() + h.slice(mb + 2);
-    console.log('  mgArt inserted after mg');
+    // mb points at "};" — keep "}", replace ";" with "," + mgArt
+    h = h.slice(0, mb + 1) + ',' + artLiteral() + h.slice(mb + 2);
+    console.log('  mgArt inserted into var chain');
   }
+  if (h.indexOf('};mgArt={') >= 0) throw new Error(file + ': bare mgArt after ;');
 
-  // 2) Replace modal text container (must exist once)
-  const count = h.split(OLD_TEXT).length - 1;
-  if (count !== 1) throw new Error(file + ': OLD_TEXT count=' + count);
-  h = h.replace(OLD_TEXT, NEW_TEXT);
-  console.log('  modal text -> art layout');
+  // 2) Replace modal text container (idempotent)
+  // File may differ from NEW_TEXT after fix_mg_art_syntax — marker is enough.
+  const oldCount = h.split(OLD_TEXT).length - 1;
+  const hasArtLayout = h.indexOf('mgArt[Qx&&Qx.pos]') >= 0;
+  if (oldCount === 1) {
+    h = h.replace(OLD_TEXT, NEW_TEXT);
+    console.log('  modal text -> art layout');
+  } else if (oldCount === 0 && hasArtLayout) {
+    console.log('  modal art layout already present');
+  } else {
+    throw new Error(file + ': OLD_TEXT count=' + oldCount + ' hasArtLayout=' + hasArtLayout);
+  }
 
   // sanity
   if (h.indexOf('mgArt=') < 0) throw new Error(file + ': mgArt missing');
